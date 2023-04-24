@@ -1,29 +1,22 @@
 
-import Controladores.ConexionController;
-import Modelos.Conexion;
-import Vistas.frmLogin;
-import Vistas.frmPrincipal;
+import controlador.ConexionController;
+import modelos.Conexion;
+import modelos.personaModel;
+import vistas.fmrLogin;
+import vistas.fmrPrincipal;
+import vistas.frmPersonas;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
-/**
- *
- * @author umg
- */
 public class main {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        frmPrincipal VistaPrincipal = new frmPrincipal();
-        frmLogin VistaLogin = new frmLogin(null, true);
+        fmrPrincipal VistaPrincipal = new fmrPrincipal();
+        fmrLogin VistaLogin = new fmrLogin(VistaPrincipal,true);
+        frmPersonas VistaPersona = new frmPersonas(VistaPrincipal, true);
         Conexion ModeloConexion = new Conexion();
-        ConexionController ControladorConexoin = new ConexionController(VistaLogin, VistaPrincipal, ModeloConexion);
+        personaModel ModeloPersona = new personaModel();
+        
+        ConexionController nuevaConexion = new ConexionController(VistaLogin, VistaPrincipal, VistaPersona, ModeloConexion, ModeloPersona);
     }
     
 }
